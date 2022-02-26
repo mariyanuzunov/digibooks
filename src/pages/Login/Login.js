@@ -30,6 +30,8 @@ export default function Login() {
 
   const { username, password } = formData;
 
+  const isEmpty = !username || !password;
+
   useEffect(() => {
     if (isError) {
       message.split(";").map((msg) => toast.error(msg));
@@ -95,7 +97,11 @@ export default function Login() {
           {isLoading ? (
             <Spinner />
           ) : (
-            <button type="submit" className={styles.btnSubmit}>
+            <button
+              type="submit"
+              className={styles.btnSubmit}
+              disabled={isEmpty}
+            >
               LOG IN
             </button>
           )}

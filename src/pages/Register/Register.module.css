@@ -90,6 +90,12 @@
   background-color: #1076b5;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnSubmit:disabled {
+  cursor: default;
+  background-color: #87bada;
 }
 
 .changeForm {

@@ -28,6 +28,8 @@ export default function Register() {
 
   const { username, password, repeatPassword } = formData;
 
+  const isEmpty = !username || !password || !repeatPassword;
+
   useEffect(() => {
     if (isError) {
       toast.error(message);
@@ -122,7 +124,11 @@ export default function Register() {
           {isLoading ? (
             <Spinner />
           ) : (
-            <button type="submit" className={styles.btnSubmit}>
+            <button
+              type="submit"
+              className={styles.btnSubmit}
+              disabled={isEmpty}
+            >
               SIGN UP
             </button>
           )}

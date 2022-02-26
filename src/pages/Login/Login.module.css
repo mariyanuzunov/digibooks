@@ -85,6 +85,11 @@
   border-radius: 5px;
 }
 
+.btnSubmit:disabled {
+  cursor: default;
+  background-color: #83e2a0;
+}
+
 .changeForm {
   margin-top: 55px;
   font-size: 16px;
