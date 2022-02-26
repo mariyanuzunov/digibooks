@@ -49,6 +49,27 @@
   padding: 12px;
 }
 
+.showPasswordContainer {
+  position: relative;
+}
+
+.showPassword {
+  height: 16px;
+  position: absolute;
+  bottom: 13px;
+  right: 13px;
+  fill: #949494;
+}
+
+.showPassword:hover {
+  cursor: pointer;
+  fill: #08c642;
+}
+
+.passwordVisible {
+  fill: #08c642;
+}
+
 .recoverPassword {
   margin-top: 8px;
   text-align: right;

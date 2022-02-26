@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { register, reset } from "../../features/auth/authSlice";
 
 import Spinner from "../../components/Spinner/Spinner";
+import { ReactComponent as ShowPassword } from "../../assets/show-password.svg";
 
 import styles from "./Register.module.css";
 
@@ -22,6 +23,8 @@ export default function Register() {
     password: "",
     repeatPassword: "",
   });
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const { username, password, repeatPassword } = formData;
 
@@ -62,6 +65,10 @@ export default function Register() {
     setFormData((state) => ({ ...state, [field]: value }));
   };
 
+  const handleShowPassword = () => {
+    setShowPassword((state) => !state);
+  };
+
   return (
     <section className={`container ${styles.flex}`}>
       <section className={styles.controls}>
@@ -80,22 +87,38 @@ export default function Register() {
           />
           <label htmlFor="txtPassword">Password</label>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             id="txtPassword"
             className={styles.inputPassword}
             value={password}
             onChange={handleChange}
           />
+          <div className={styles.showPasswordContainer}>
+            <ShowPassword
+              className={`${styles.showPassword} ${
+                showPassword ? styles.passwordVisible : ""
+              }`}
+              onClick={handleShowPassword}
+            />
+          </div>
           <label htmlFor="txtRepeatPassword">Repeat password</label>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="repeatPassword"
             id="txtRepeatPassword"
             className={styles.inputPassword}
             value={repeatPassword}
             onChange={handleChange}
           />
+          <div className={styles.showPasswordContainer}>
+            <ShowPassword
+              className={`${styles.showPassword} ${
+                showPassword ? styles.passwordVisible : ""
+              }`}
+              onClick={handleShowPassword}
+            />
+          </div>
           {isLoading ? (
             <Spinner />
           ) : (

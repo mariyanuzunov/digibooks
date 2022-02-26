@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { login, reset } from "../../features/auth/authSlice";
 
 import Spinner from "../../components/Spinner/Spinner";
+import { ReactComponent as ShowPassword } from "../../assets/show-password.svg";
 
 import styles from "./Login.module.css";
 
@@ -24,6 +25,8 @@ export default function Login() {
     username: "",
     password: "",
   });
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const { username, password } = formData;
 
@@ -51,6 +54,10 @@ export default function Login() {
     setFormData((state) => ({ ...state, [field]: value }));
   };
 
+  const handleShowPassword = () => {
+    setShowPassword((state) => !state);
+  };
+
   return (
     <section className={`container ${styles.flex}`}>
       <section className={styles.controls}>
@@ -67,13 +74,21 @@ export default function Login() {
           />
           <label htmlFor="txtPassword">Password</label>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             id="txtPassword"
             className={styles.inputPasswor}
             value={password}
             onChange={handleChange}
           />
+          <div className={styles.showPasswordContainer}>
+            <ShowPassword
+              className={`${styles.showPassword} ${
+                showPassword ? styles.passwordVisible : ""
+              }`}
+              onClick={handleShowPassword}
+            />
+          </div>
           <p className={styles.recoverPassword}>
             <Link to="">Recover password</Link>
           </p>
