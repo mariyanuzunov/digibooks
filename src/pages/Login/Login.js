@@ -1,22 +1,77 @@
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate, Link } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import { login, reset } from "../../features/auth/authSlice";
 
 import styles from "./Login.module.css";
 
+// TODO: Add loader and validation
+
 export default function Login() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { token, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  console.log(token, isLoading, message);
+
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+
+  const { username, password } = formData;
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+
+    if (isSuccess || token) {
+      navigate("/");
+    }
+
+    dispatch(reset());
+  }, [token, isSuccess, isError, message, dispatch, navigate]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const credentials = { username, password };
+    dispatch(login(credentials));
+  };
+
+  const handleChange = (e) => {
+    const { name: field, value } = e.target;
+    setFormData((state) => ({ ...state, [field]: value }));
+  };
+
   return (
     <section className={`container ${styles.flex}`}>
       <section className={styles.controls}>
         <img src="/images/logo.svg" alt="" />
         <p className={styles.title}>WELCOME BACK!</p>
-        <form className={styles.form}>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <label htmlFor="txtUsername">Username</label>
-          <input type="text" name="txtUsername" id="txtUsername" />
+          <input
+            type="text"
+            name="username"
+            id="txtUsername"
+            value={username}
+            onChange={handleChange}
+          />
           <label htmlFor="txtPassword">Password</label>
           <input
             type="password"
-            name="txtPassword"
+            name="password"
             id="txtPassword"
             className={styles.inputPasswor}
+            value={password}
+            onChange={handleChange}
           />
           <p className={styles.recoverPassword}>
             <Link to="">Recover password</Link>
