@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { login, reset } from "../../features/auth/authSlice";
@@ -11,7 +11,10 @@ import styles from "./Login.module.css";
 
 export default function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
+
+  const from = location.state?.from?.pathname || "/";
 
   const { token, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
@@ -32,11 +35,11 @@ export default function Login() {
     }
 
     if (isSuccess || token) {
-      navigate("/");
+      navigate(from, { replace: true });
     }
 
     dispatch(reset());
-  }, [token, isSuccess, isError, message, dispatch, navigate]);
+  }, [token, isSuccess, isError, message, dispatch, navigate, from]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

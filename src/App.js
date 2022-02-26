@@ -1,9 +1,8 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
-import { logout } from "./features/auth/authSlice";
-
+import RequireAuth from "./guards/RequireAuth";
+import RequireGuest from "./guards/RequireGuest";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Library from "./pages/Library/Library";
@@ -11,36 +10,51 @@ import Settings from "./pages/Settings/Settings";
 
 import "react-toastify/dist/ReactToastify.css";
 
-// TODO: Route guards
-
 export default function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/library" element={<Library />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="/" element={<Navigate to="/library" />} />
+
+          <Route
+            path="/library"
+            element={
+              <RequireAuth>
+                <Library />
+              </RequireAuth>
+            }
+          />
+
+          <Route
+            path="/settings"
+            element={
+              <RequireAuth>
+                <Settings />
+              </RequireAuth>
+            }
+          />
+
+          <Route
+            path="/login"
+            element={
+              <RequireGuest>
+                <Login />
+              </RequireGuest>
+            }
+          />
+
+          <Route
+            path="/register"
+            element={
+              <RequireGuest>
+                <Register />
+              </RequireGuest>
+            }
+          />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
-    </>
-  );
-}
-
-function Home() {
-  const dispatch = useDispatch();
-  return (
-    <>
-      <h1>home page</h1>
-      <nav>
-        <Link to="/login">login</Link>
-        <Link to="/register">register</Link>
-        <button onClick={() => dispatch(logout())}>logout</button>
-        <Link to="/library">library</Link>
-      </nav>
     </>
   );
 }
