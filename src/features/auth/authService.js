@@ -11,7 +11,6 @@ const options = {
 
 const register = async (credentials) => {
   options.body = JSON.stringify(credentials);
-  console.log(options.body);
   const res = await fetch(REGISTER_URL, options);
 
   if (!res.ok) {

@@ -9,8 +9,6 @@ import Spinner from "../../components/Spinner/Spinner";
 
 import styles from "./Register.module.css";
 
-// TODO: validation
-
 export default function Register() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -33,7 +31,7 @@ export default function Register() {
     }
 
     if (isSuccess || token) {
-      navigate("/");
+      navigate("/login");
     }
 
     dispatch(reset());
@@ -42,13 +40,17 @@ export default function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // TODO: Add regex
-    if (username.length < 4) {
-      toast.error("The username must be at least 4 characters long!");
+    const regex = /^\w{4,20}$/;
+
+    if (!regex.test(username)) {
+      toast.warn(
+        "The username must be between 4 and 20 characters long. No special symbols or empty spaces allowed!"
+      );
     } else if (password.length < 6) {
-      toast.error("The password must be at least 6 characters long!");
+      toast.warn("The password must be at least 6 characters long!");
     } else if (password !== repeatPassword) {
-      toast.error("The password don't match!");
+      toast.warn("The passwords don't match!");
+      setFormData((state) => ({ ...state, repeatPassword: "" }));
     } else {
       const credentials = { username, password };
       dispatch(register(credentials));

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 import { getBooks, reset } from "../../features/books/bookSlice";
 
@@ -17,7 +18,7 @@ export default function Library() {
 
   useEffect(() => {
     if (isError) {
-      console.log(message);
+      toast.error(message);
     }
 
     dispatch(getBooks());

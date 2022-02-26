@@ -6,7 +6,7 @@ let token;
 try {
   token = JSON.parse(localStorage.getItem("token"));
 } catch (error) {
-  console.log(error);
+  console.log("Unauthenticated!");
 }
 
 const initialState = {

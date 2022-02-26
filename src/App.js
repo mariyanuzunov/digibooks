@@ -54,7 +54,7 @@ export default function App() {
           />
         </Routes>
       </BrowserRouter>
-      <ToastContainer />
+      <ToastContainer position="bottom-center" />
     </>
   );
 }

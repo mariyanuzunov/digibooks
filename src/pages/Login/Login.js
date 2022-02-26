@@ -9,8 +9,6 @@ import Spinner from "../../components/Spinner/Spinner";
 
 import styles from "./Login.module.css";
 
-// TODO: validation
-
 export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,7 +29,7 @@ export default function Login() {
 
   useEffect(() => {
     if (isError) {
-      toast.error(message);
+      message.split(";").map((msg) => toast.error(msg));
     }
 
     if (isSuccess || token) {
