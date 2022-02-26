@@ -5,6 +5,7 @@ import { getBooks, reset } from "../../features/books/bookSlice";
 
 import Header from "../../components/Header/Header";
 import BookList from "../../components/BookList/BookList";
+import Spinner from "../../components/Spinner/Spinner";
 
 import styles from "./Library.module.css";
 
@@ -38,7 +39,7 @@ export default function Library() {
             placeholder="Search"
           />
         </header>
-        <BookList books={books} />
+        {isLoading ? <Spinner /> : <BookList books={books} />}
       </section>
     </>
   );

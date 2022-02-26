@@ -5,9 +5,11 @@ import { toast } from "react-toastify";
 
 import { login, reset } from "../../features/auth/authSlice";
 
+import Spinner from "../../components/Spinner/Spinner";
+
 import styles from "./Login.module.css";
 
-// TODO: Add loader and validation
+// TODO: validation
 
 export default function Login() {
   const navigate = useNavigate();
@@ -19,8 +21,6 @@ export default function Login() {
   const { token, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
-
-  console.log(token, isLoading, message);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -79,9 +79,13 @@ export default function Login() {
           <p className={styles.recoverPassword}>
             <Link to="">Recover password</Link>
           </p>
-          <button type="submit" className={styles.btnSubmit}>
-            LOG IN
-          </button>
+          {isLoading ? (
+            <Spinner />
+          ) : (
+            <button type="submit" className={styles.btnSubmit}>
+              LOG IN
+            </button>
+          )}
         </form>
         <p className={styles.changeForm}>
           You don't have an account? <Link to="/register">SIGN UP HERE</Link>

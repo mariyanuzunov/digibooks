@@ -5,9 +5,11 @@ import { toast } from "react-toastify";
 
 import { register, reset } from "../../features/auth/authSlice";
 
+import Spinner from "../../components/Spinner/Spinner";
+
 import styles from "./Register.module.css";
 
-// TODO: Add loader and validation
+// TODO: validation
 
 export default function Register() {
   const navigate = useNavigate();
@@ -92,9 +94,13 @@ export default function Register() {
             value={repeatPassword}
             onChange={handleChange}
           />
-          <button type="submit" className={styles.btnSubmit}>
-            SIGN UP
-          </button>
+          {isLoading ? (
+            <Spinner />
+          ) : (
+            <button type="submit" className={styles.btnSubmit}>
+              SIGN UP
+            </button>
+          )}
         </form>
         <p className={styles.changeForm}>
           You have an account? <Link to="/login">LOG IN HERE</Link>
