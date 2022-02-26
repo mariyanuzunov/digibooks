@@ -1,0 +1,93 @@
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 770px;
+  min-width: 500px;
+  padding: 135px 30px;
+}
+
+.title {
+  margin-top: 42px;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.subtitle {
+  margin-top: 22px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 8px;
+}
+
+.form label {
+  margin-top: 41px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.form input {
+  height: 42px;
+  border: 1px solid #0d242e;
+  border-radius: 5px;
+  font-weight: 500;
+  padding: 12px;
+}
+
+.recoverPassword {
+  margin-top: 8px;
+  text-align: right;
+  font-size: 12px;
+}
+
+.recoverPassword a {
+  color: #1076b5;
+}
+
+.btnSubmit {
+  margin-top: 66px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #1076b5;
+  border: none;
+  border-radius: 5px;
+}
+
+.changeForm {
+  margin-top: 55px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.changeForm a {
+  color: #08c642;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.imageSection {
+  flex-basis: 1070px;
+}
+
+.imageSection img {
+  width: 100%;
+  height: 100%;
+}
