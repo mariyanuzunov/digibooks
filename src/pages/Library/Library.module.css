@@ -1,0 +1,23 @@
+.p15 {
+  padding: 15px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.searchInput {
+  width: 500px;
+  height: 40px;
+  border: 1px solid #0d242e;
+  border-radius: 5px;
+  padding: 10px 16px;
+  margin-left: 24px;
+}
