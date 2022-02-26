@@ -1,0 +1,32 @@
+.header {
+  height: 63px;
+  background-color: #fff;
+  box-shadow: 0px 3px 6px #00000029;
+  padding-top: 15px;
+}
+
+.container {
+  max-width: 1820px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 30px;
+}
+
+.nav {
+  display: flex;
+  list-style-type: none;
+}
+
+.nav li:not(:first-child) {
+  margin-left: 86px;
+}
+
+.btnProfile {
+  border: none;
+  background-color: #fff;
+}
