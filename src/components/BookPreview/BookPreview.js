@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 
+import { ReactComponent as PolygonSVG } from "../../assets/svgs/polygon.svg";
+
 import dateParser from "../../utils/dateParser";
 
 import styles from "./BookPreview.module.css";
@@ -32,7 +34,7 @@ export default function BookPreview({ book }) {
         </section>
       </section>
       <button className={styles.button} onClick={handleRedirect}>
-        <img src="/images/polygon.png" alt="" />
+        <PolygonSVG color="#fff" />
       </button>
     </article>
   );

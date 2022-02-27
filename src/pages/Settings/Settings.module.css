@@ -53,8 +53,7 @@
 }
 
 .settingsOption::after {
-  content: "";
-  background: url("./polygon.svg") no-repeat;
+  content: url("../../assets/svgs/polygon2.svg");
   position: absolute;
   width: 14px;
   height: 22px;

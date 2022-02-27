@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { login, reset } from "../../features/auth/authSlice";
 
 import Spinner from "../../components/Spinner/Spinner";
-import { ReactComponent as ShowPassword } from "../../assets/show-password.svg";
+import { ReactComponent as ShowPassword } from "../../assets/svgs/show-password.svg";
 
 import styles from "./Login.module.css";
 
@@ -111,7 +111,7 @@ export default function Login() {
         </p>
       </section>
       <section className={styles.imageSection}>
-        <img src="./images/login-backgorund.png" alt="" />
+        <img src="https://i.ibb.co/stJjMr0/auth-backgorund.png" alt="" />
       </section>
     </section>
   );

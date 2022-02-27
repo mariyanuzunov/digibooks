@@ -1,16 +1,15 @@
 import NavLink from "../NavLink/NavLink";
 
+import { ReactComponent as Logo } from "../../assets/svgs/logo.svg";
+import { ReactComponent as UserIcon } from "../../assets/svgs/profile.svg";
+
 import styles from "./Header.module.css";
 
 export default function Header() {
   return (
     <header className={styles.header}>
       <section className={styles.container}>
-        <img
-          src="images/logo.svg"
-          alt="digibooks logo"
-          className={styles.logo}
-        />
+        <Logo className={styles.logo} />
         <nav>
           <ul className={styles.nav}>
             <li>
@@ -22,7 +21,7 @@ export default function Header() {
           </ul>
         </nav>
         <button className={styles.btnProfile}>
-          <img src="images/profile.svg" alt="profile image" />
+          <UserIcon />
         </button>
       </section>
     </header>
