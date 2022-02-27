@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { login, reset } from "../../features/auth/authSlice";
 
 import Spinner from "../../components/Spinner/Spinner";
+import { ReactComponent as Logo } from "../../assets/svgs/logo.svg";
 import { ReactComponent as ShowPassword } from "../../assets/svgs/show-password.svg";
 
 import styles from "./Login.module.css";
@@ -63,7 +64,7 @@ export default function Login() {
   return (
     <section className={`container ${styles.flex}`}>
       <section className={styles.controls}>
-        <img src="/images/logo.svg" alt="" />
+        <Logo />
         <p className={styles.title}>WELCOME BACK!</p>
         <form onSubmit={handleSubmit} className={styles.form}>
           <label htmlFor="txtUsername">Username</label>
