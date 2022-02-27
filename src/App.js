@@ -7,6 +7,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Library from "./pages/Library/Library";
 import Settings from "./pages/Settings/Settings";
+import Details from "./pages/Details/Details";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -22,6 +23,15 @@ export default function App() {
             element={
               <RequireAuth>
                 <Library />
+              </RequireAuth>
+            }
+          />
+
+          <Route
+            path="/library/:id"
+            element={
+              <RequireAuth>
+                <Details />
               </RequireAuth>
             }
           />

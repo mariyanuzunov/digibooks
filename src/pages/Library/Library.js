@@ -23,7 +23,7 @@ export default function Library() {
 
     dispatch(getBooks());
 
-    return () => dispatch(reset());
+    // return () => dispatch(reset());
   }, [isError, message, dispatch]);
 
   return (
