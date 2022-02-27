@@ -6,7 +6,8 @@
 }
 
 .container {
-  max-width: 1820px;
+  max-width: 1840px;
+  padding: 0 20px;
   margin: 0px auto;
   display: flex;
   justify-content: space-between;
@@ -30,4 +31,42 @@
 .btnProfile {
   border: none;
   background-color: #fff;
+}
+
+/* Hamburger menu */
+
+.sidebar {
+  display: none;
+}
+
+.sidebarOpen {
+  width: 100vh;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 62px;
+  left: 0;
+  background-color: #fff;
+  list-style-type: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 2;
+  box-shadow: 0px 5px 15px #00347026;
+}
+
+.sidebarOpen li {
+  margin-left: 20px;
+  margin-top: 60px;
+}
+
+@media only screen and (max-width: 700px) {
+  .sidebar {
+    display: block;
+    z-index: 3;
+  }
+
+  .nav {
+    display: none;
+  }
 }

@@ -5,3 +5,11 @@
   gap: 45px;
   margin-top: 40px;
 }
+
+@media only screen and (max-width: 1380px) {
+  .bookList {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

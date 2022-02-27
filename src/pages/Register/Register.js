@@ -73,12 +73,12 @@ export default function Register() {
   };
 
   return (
-    <section className={`container ${styles.flex}`}>
+    <section className={styles.container}>
       <section className={styles.controls}>
-        <Logo />
-        <p className={styles.title}>WELCOME TO THE BEST BOOK DATABASE!</p>
-        <p className={styles.subtitle}>CREATE YOUR PROFILE</p>
         <form onSubmit={handleSubmit} className={styles.form}>
+          <Logo className={styles.logo} />
+          <p className={styles.title}>WELCOME TO THE BEST BOOK DATABASE!</p>
+          <p className={styles.subtitle}>CREATE YOUR PROFILE</p>
           <label htmlFor="txtUsername">Username</label>
           <input
             type="text"
@@ -132,10 +132,10 @@ export default function Register() {
               SIGN UP
             </button>
           )}
+          <p className={styles.changeForm}>
+            You have an account? <Link to="/login">LOG IN HERE</Link>
+          </p>
         </form>
-        <p className={styles.changeForm}>
-          You have an account? <Link to="/login">LOG IN HERE</Link>
-        </p>
       </section>
       <section className={styles.imageSection}>
         <img src="https://i.ibb.co/stJjMr0/auth-backgorund.png" alt="" />

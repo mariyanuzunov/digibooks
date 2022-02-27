@@ -62,11 +62,11 @@ export default function Login() {
   };
 
   return (
-    <section className={`container ${styles.flex}`}>
+    <section className={styles.container}>
       <section className={styles.controls}>
-        <Logo />
-        <p className={styles.title}>WELCOME BACK!</p>
         <form onSubmit={handleSubmit} className={styles.form}>
+          <Logo className={styles.logo} />
+          <p className={styles.title}>WELCOME BACK!</p>
           <label htmlFor="txtUsername">Username</label>
           <input
             type="text"
@@ -106,10 +106,10 @@ export default function Login() {
               LOG IN
             </button>
           )}
+          <p className={styles.changeForm}>
+            You don't have an account? <Link to="/register">SIGN UP HERE</Link>
+          </p>
         </form>
-        <p className={styles.changeForm}>
-          You don't have an account? <Link to="/register">SIGN UP HERE</Link>
-        </p>
       </section>
       <section className={styles.imageSection}>
         <img src="https://i.ibb.co/stJjMr0/auth-backgorund.png" alt="" />
