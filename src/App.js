@@ -62,6 +62,8 @@ export default function App() {
               </RequireGuest>
             }
           />
+
+          <Route path="*" element={<Navigate to="/library" />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer position="bottom-center" />
